@@ -13,7 +13,7 @@ def possibleMoves(positions):
     All = []
     for i in positions:
         All.extend(GetPositions(i))
-    All = inRange(All)
+    All = [ x for x in All if -1 <= x ]
     return All
 
 def GetPositions(pos):
@@ -29,11 +29,7 @@ def GetPositions(pos):
     else:
         posList = [pos+17,pos+6,pos+15, pos-17, pos-15, pos+10,pos -10, pos-6]
     return posList
-def inRange(All):
-    for i in All:
-        if i > 63 or i < 0:
-            All.pop(All.index(i))
-    return All
+
     
 def isDestPresent(movesPossible,dest):
     present = False
@@ -51,4 +47,4 @@ while count < 64:
   count = count + 1
 
 
-print (solution(19,36))
+print (solution(0,1))
