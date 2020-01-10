@@ -1,9 +1,13 @@
 def solution(src, dest):
     steps = 0
     movesPossible = [src]
+    prevMoves = []
     while isDestPresent(movesPossible,dest) != True:
             steps = steps + 1
             movesPossible = possibleMoves(movesPossible)
+            movesPossible = set(movesPossible)
+            movesPossible = [x for x in movesPossible if x not in prevMoves]
+            prevMoves.extend(movesPossible)
             print movesPossible
     return steps
         
